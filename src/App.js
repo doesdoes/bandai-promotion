@@ -254,7 +254,7 @@ function App() {
                   
             </div>
 
-            {resultData.link.length > 1 &&
+            {resultData.link.length > 1 ?
             <div className="res_mid result_product">
                 <animated.div className="tit_wrap" style={{...fadeStyles4, textAlign: 'center'}}>
                   <img src="/imgs/promotion/mbti/res_line_top.svg" alt="" />
@@ -285,13 +285,24 @@ function App() {
                 </ul>
                 <img src="/imgs/promotion/mbti/res_line_bottom.svg" alt="" />
             </div>
+            :
+            // 이치방쿠지 레이아웃
+            <div>
+              <animated.div className="tit_wrap" style={{...fadeStyles4, textAlign: 'center'}}>
+                  <img src="/imgs/promotion/mbti/res_line_top.svg" alt="" />
+                  <h5 className="pd_tit font font-16 font-bold">{resultData.fullName}의 대표상품</h5>
+                </animated.div>
+            </div>
             }
 
             <animated.div className="res_bottom" style={fadeStyles5}>
                 <div className="btn_res_wrap">
                     <div className="type_btn submit_btn">
-                        {resultData.link.length > 1 && <>
+                        {resultData.link.length > 1 ? <>
                           <a href={isMobile ? resultData.linkM : resultData.link} className="btn btn-box color-purple border-rad-4 no_pd" target="_blank">더 많은 <span className="res_type">{resultData.resTit}</span> 상품 보러가기</a>
+                          </> : <>
+                          {/* 이치방쿠지 결과 링크 */}
+                          <a href="#새링크" className="btn btn-box color-purple border-rad-4 no_pd" target="_blank">더 많은 <span className="res_type">{resultData.resTit}</span> 둘러보기</a>
                           </>
                         }
                         <a href="#" className="btn btn-box color-purple btn_ico member_join border-rad-4" onClick={(e) => { signup(); e.preventDefault(); e.stopPropagation(); }}><span className="ico"></span><span>회원가입 바로가기</span></a>
