@@ -1,0 +1,21 @@
+/* 모바일 버튼 탭 효과 제거 */
+* { 
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* 모션을 넣기 위해 추가한 태그 구조로 인한 사이드 이펙트 재정의 */
+.wrapper-mbti .step_wrap.step_result .res_mid > img:first-of-type {
+  top: auto !important;
+}
+
+.wrapper-mbti .step_wrap.step_result .res_mid .tit_wrap {
+  width: 100%;
+}
+
+.wrapper-mbti .step_wrap.step_result .res_mid .tit_wrap > img {
+  position: absolute;
+  left: 0;
+  right: 0;
+  width: 100%;
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/member.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/member_sc.css" />
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/promotion.css" />
+    <title>React App</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <script>
+
+      var f = document.applicantSubFrm;
+        code = f.code.value;
+        userno = f.userno.value;
+        userid = f.userid.value;
+        
+      /* 3. 결과 보기 버튼 클릭 시 참여자 정보 등록 */	
+      function infoReg(userInfo, resultcode) {
+        if(window.$) {
+          $.ajax({
+            type: "POST",
+            dataType: "json",
+            url: "../promotion/applicant_reg_ajax.do" ,
+            data: {code: userInfo.code, userno: userInfo.userno, userid: userInfo.userid, resultcode: resultcode} ,
+            error: function (request, status, error) {
+              alert(request.responseText)
+            },
+            success: function(data, textStatus, xhr) {
+                if(xhr.status == 200) {
+                  console.log('성공');
+                  /* 이후 진행프로세스 정의하시면 됩니다.  */
+                }
+            }
+          });
+        }
+      }
+
+      /* 5. 회원가입 바로가기 버튼 클릭 시 카운트 */
+      function signupCnt(code) {
+          $.ajax({
+            type: "POST",
+            dataType: "json",
+          url: "../promotion/signup_cnt_ajax.do" ,
+          data: {code: code} ,
+          error: function (request, status, error) {
+            alert(request.responseText)
+          },
+          success: function(data, textStatus, xhr) {
+              if(xhr.status == 200) {
+                console.log('성공');
+                /* 이후 진행프로세스 정의하시면 됩니다.  */
+              }
+          }
+        });    
+      }
+      
+      
+      /* 5. SNS공유하기 바로가기 버튼 클릭 시 카운트 */
+      function snsCnt(snsid, resultcode) {
+      var sns;
+      if(snsid === 'kakaotalk'){
+        sns = 'kakaotalk'
+      }else if(snsid === 'facebook'){
+        sns = 'facebook'
+      }
+
+      // alert(resultcode);
+
+      console.log(snsid, resultcode);
+      
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+        url: "../promotion/sns_cnt_ajax.do" ,
+        data: {code: code, sns: sns} ,
+        error: function (request, status, error) {
+          alert(request.responseText)
+        },
+        success: function(data, textStatus, xhr) {
+            if(xhr.status == 200) {
+              switch(sns)
+              {
+              case 'facebook':
+                sendSns('facebook', '/promotion/promotion.do?code=p01&resultcode=' + resultcode)
+                break;
+                
+              case 'kakaotalk':
+                sendSns('kakaotalk', '/promotion/promotion.do?code=p01&resultcode=' + resultcode)
+                break;
+
+              }
+              }
+          }
+        });    
+      }
+
+        function copyUrlToClipboard(resultcode) {
+          let share_url = location.href;
+          if(!new RegExp(/resultcode/).test(share_url)) share_url += '&resultcode=' + resultcode;
+
+          var obShareUrl = document.createElement("input"); document.body.appendChild(obShareUrl); obShareUrl.value = share_url;
+          obShareUrl.select();
+          document.execCommand("copy");
+          alert("URL이 복사되었습니다. 붙여넣기를 사용하여 URL을 공유해보세요."); document.body.removeChild(obShareUrl);
+        }
+      
+      </script>
+
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+</html>
