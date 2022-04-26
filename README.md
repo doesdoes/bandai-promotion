@@ -5,6 +5,7 @@
 ## 설치 및 실행
 
 ```
+// node version v16.14.2
 npm i // 모듈 설치
 npm run start // 로컬 실행
 ```
