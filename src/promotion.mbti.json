@@ -198,15 +198,12 @@
     {
         "resTit": "이치방쿠지",
         "desc": "정해진 것도, 확실한 것도 내게 크게 중요하지 않다<br> 꼼꼼하고 섬세하기 보다는<br>모험심 강하고 패기넘치는 성향의 당신에게는<br>복권처럼 다양한 캐릭터를 랜덤으로 소장할 수 있는<br><span class='font color-purple font-medium'>이치방쿠지</span>가 찰떡궁합!",
-        "link": " ",
-        "linkM": " ",
-        "pdRoot": " ",
-        "fullName": " ",
+        "link": "https://www.bnkrmall.co.kr/etc/gundam-base_store.do",
+        "linkM": "https://m.bnkrmall.co.kr/mw/etc/gundam-base_store.do",
+        "pdRoot": "ichiban",
+        "fullName": "건담베이스 위치안내",
         "pdTitle": [
-            " ",
-            " ",
-            " ",
-            " "
+            "꽝이 없는 랜덤복권으로 건담베이스 매장에서만<br>구매가능한 특별상품입니다.<br>전국 건담베이스를 방문하셔서<br>이치방쿠지의 재미에 빠져보세요!"
         ]
     },
     {

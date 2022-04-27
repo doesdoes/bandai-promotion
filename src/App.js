@@ -62,7 +62,7 @@ function App() {
     reset: true,
   })
 
-  const [trailRecommend, api] = useTrail(4, () => ({
+  const [trailRecommend, api] = useTrail(resultData ? resultData.pdTitle.length : 4, () => ({
     config: { mass: 15, tension: 1400, friction: 200 },
     opacity: 0,
     y: 20,
@@ -245,7 +245,7 @@ function App() {
         {/* <!-- 결과페이지 .active로 활성화 --> */}
         {viewState === 2 && resultData &&
         <>
-        <div className="step_wrap step_result active">
+        <div className={`step_wrap step_result active ${resultData.pdRoot === 'ichiban' ? 'res_ichiban' : ''}`}>
             <div className="res_top">
                 <animated.p className="font font-medium" style={fadeStyles}>나와 찰떡궁합은?</animated.p>
                 <animated.h4 className="font font-supersize font-26 color-purple mgt10" style={fadeStyles2}>“ <span className="res_type">{resultData.resTit}</span> ”</animated.h4>
@@ -254,11 +254,15 @@ function App() {
                   
             </div>
 
-            {resultData.link.length > 1 ?
             <div className="res_mid result_product">
                 <animated.div className="tit_wrap" style={{...fadeStyles4, textAlign: 'center'}}>
                   <img src="/imgs/promotion/mbti/res_line_top.svg" alt="" />
-                  <h5 className="pd_tit font font-16 font-bold">{resultData.fullName}의 대표상품</h5>
+                  <h5 className="pd_tit font font-16 font-bold">
+                    {resultData.pdRoot === 'ichiban' ?
+                    <>이치방쿠지란?</>:
+                    <>{resultData.fullName}의 대표상품</>
+                    }
+                  </h5>
                 </animated.div>
                 
                 <ul className="pd_list">
@@ -283,30 +287,22 @@ function App() {
                     ))} */}
 
                 </ul>
-                <img src="/imgs/promotion/mbti/res_line_bottom.svg" alt="" />
+                <animated.img style={{...fadeStyles4}} src="/imgs/promotion/mbti/res_line_bottom.svg" alt="" />
             </div>
-            :
-            // 이치방쿠지 레이아웃
-            <div>
-              <animated.div className="tit_wrap" style={{...fadeStyles4, textAlign: 'center'}}>
-                  <img src="/imgs/promotion/mbti/res_line_top.svg" alt="" />
-                  <h5 className="pd_tit font font-16 font-bold">{resultData.fullName}의 대표상품</h5>
-                  <img src="/imgs/promotion/mbti/res_line_bottom.svg" alt="" />
-                </animated.div>
-            </div>
-            }
-
+            
             <animated.div className="res_bottom" style={fadeStyles5}>
                 <div className="btn_res_wrap">
                     <div className="type_btn submit_btn">
-                        {resultData.link.length > 1 ? <>
-                          <a href={isMobile ? resultData.linkM : resultData.link} className="btn btn-box color-purple border-rad-4 no_pd" target="_blank">더 많은 <span className="res_type">{resultData.resTit}</span> 상품 보러가기</a>
-                          </> : <>
-                          {/* 이치방쿠지 결과 링크 */}
-                          <a href="#새링크" className="btn btn-box color-purple border-rad-4 no_pd" target="_blank">건담베이스 위치안내</a>
-                          </>
+                        <a href={isMobile ? resultData.linkM : resultData.link} className="btn btn-box color-purple border-rad-4 no_pd" target="_blank">
+                        {resultData.pdRoot === 'ichiban' ? <>{resultData.fullName}</>
+                        :
+                          <>더 많은 <span className="res_type">{resultData.resTit}</span> 상품 보러가기</>
                         }
-                        <a href="#" className="btn btn-box color-purple btn_ico member_join border-rad-4" onClick={(e) => { signup(); e.preventDefault(); e.stopPropagation(); }}><span className="ico"></span><span>회원가입 바로가기</span></a>
+                        </a>
+                        {
+                          resultData.pdRoot !== 'ichiban' && 
+                          <a href="#" className="btn btn-box color-purple btn_ico member_join border-rad-4" onClick={(e) => { signup(); e.preventDefault(); e.stopPropagation(); }}><span className="ico"></span><span>회원가입 바로가기</span></a>
+                        }
                         <a href="#" className="btn btn-box color-purple btn_ico test_again border-rad-4" 
                           onClick={(e) => { 
                             window.location.href = isMobile ? '/mw/promotion/promotion.do?code=p01' : '/promotion/promotion.do?code=p01';
