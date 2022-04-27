@@ -1,0 +1,93 @@
+/* NOTO Sans KR Regular */
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 400; src: url("../../fonts/NotoSansKR-Regular.eot"); /* IE9 Compat Modes */ src: local("Noto Sans KR Regular"), local("NotoSansKR-Regular"), url("../../fonts/NotoSansKR-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/NotoSansKR-Regular.woff2") format("woff2"), url("../../fonts/NotoSansKR-Regular.woff") format("woff"), url("../../fonts/NotoSansKR-Regular.ttf") format("truetype"), url("../../fonts/NotoSansKR-Regular.svg#NotoSansKR") format("svg"); /* Legacy iOS */ }
+
+/* NOTO Sans KR Medium */
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 500; src: url("../../fonts/NotoSansKR-Medium.eot"); /* IE9 Compat Modes */ src: local("Noto Sans KR Medium"), local("NotoSansKR-Medium"), url("../../fonts/NotoSansKR-Medium.eot?#iefix") format("embedded-opentype"), url("../../fonts/NotoSansKR-Medium.woff2") format("woff2"), url("../../fonts/NotoSansKR-Medium.woff") format("woff"), url("../../fonts/NotoSansKR-Medium.ttf") format("truetype"), url("../../fonts/NotoSansKR-Medium.svg#NotoSansKR") format("svg"); /* Legacy iOS */ }
+
+/* NOTO Sans KR Bold */
+@font-face { font-family: 'Noto Sans KR'; font-style: normal; font-weight: 700; src: url("../../fonts/NotoSansKR-Bold.eot"); /* IE9 Compat Modes */ src: local("Noto Sans KR Bold"), local("NotoSansKR-Bold"), url("../../fonts/NotoSansKR-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/NotoSansKR-Bold.woff") format("woff"), url("../../fonts/NotoSansKR-Bold.ttf") format("truetype"), url("../../fonts/NotoSansKR-Bold.svg#NotoSansKR") format("svg"); /* Legacy iOS */ }
+
+/* ROBOTO Regular */
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 400; src: url("../../fonts/Roboto-Regular.eot"); /* IE9 Compat Modes */ src: local("Roboto KR Regular"), local("Roboto-Regular"), url("../../fonts/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("../../fonts/Roboto-Regular.woff2") format("woff2"), url("../../fonts/Roboto-Regular.woff") format("woff"), url("../../fonts/Roboto-Regular.ttf") format("truetype"); /* Safari, Android, iOS */ }
+
+/* ROBOTO Bold */
+@font-face { font-family: 'Roboto'; font-style: normal; font-weight: 700; src: url("../../fonts/Roboto-Bold.eot"); /* IE9 Compat Modes */ src: local("Roboto Bold"), local("Roboto-Bold"), url("../../fonts/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("../../fonts/Roboto-Bold.woff2") format("woff2"), url("../../fonts/Roboto-Bold.woff") format("woff"), url("../../fonts/Roboto-Bold.ttf") format("truetype"); /* Safari, Android, iOS */ }
+
+/* ROBOTO Regular */
+@font-face { font-family: 'Super Size'; font-style: normal; font-weight: bold; src: url("../../fonts/SuperSizeBlackItalic.eot"); /* IE9 Compat Modes */ src: url("../../fonts/SuperSizeBlackItalic.eot?#iefix") format("embedded-opentype"), url("../../fonts/SuperSizeBlackItalic.woff2") format("woff2"), url("../../fonts/SuperSizeBlackItalic.woff") format("woff"), url("../../fonts/SuperSizeBlackItalic.ttf") format("truetype"); /* Safari, Android, iOS */ }
+
+html { font-family: 'Noto Sans KR', sans-serif; letter-spacing: -0.035em; font-size: 14px; line-height: 1.71; word-break: keep-all; -webkit-font-smoothing: antialiased; -webkit-text-size-adjust: 100%; -moz-text-size-adjust: 100%; -ms-text-size-adjust: 100%; color: #222; }
+
+a { text-decoration: none; font-size: inherit; color: inherit; }
+
+* { letter-spacing: -0.035em; }
+
+.font-noto { font-family: 'Noto Sans KR', sans-serif !important; }
+
+.font-roboto, .num, .price_origin { font-family: 'Roboto', 'Noto Sans KR', sans-serif !important; letter-spacing: 0; }
+
+.font-supersize { font-family: 'Super Size', sans-serif !important; letter-spacing: normal; }
+
+.font-medium { font-weight: 500; }
+
+.font-bold { font-weight: 700; }
+
+.font-120 { font-size: 120px; }
+
+.font-100 { font-size: 5.208vw; }
+
+@media screen and (max-width: 1440px) { .font-100 { font-size: 80px; } }
+
+.font-80 { font-size: 80px; line-height: 90px; letter-spacing: -2.8px; }
+
+.font-68 { font-size: 68px; line-height: 1.29; }
+
+.font-68.font-roboto { line-height: 1.18; }
+
+.font-60 { font-size: 60px; }
+
+.font-45 { font-size: 45px; letter-spacing: -0.035em; }
+
+.font-56 { font-size: 56px; letter-spacing: -0.035em; }
+
+.font-48 { font-size: 48px; letter-spacing: -0.035em; }
+
+.font-40 { font-size: 40px; letter-spacing: -0.035em; }
+
+.font-32 { font-size: 32px; }
+
+.font-36 { font-size: 36px; }
+
+.font-28 { font-size: 28px; }
+
+.font-24 { font-size: 24px; }
+
+.font-22 { font-size: 22px; }
+
+.font-20 { font-size: 20px; }
+
+.font-18 { font-size: 18px; }
+
+.font-16 { font-size: 16px; }
+
+.font-15 { font-size: 15px; }
+
+.font-14 { font-size: 14px; line-height: 1.71; }
+
+.font-13 { font-size: 13px; }
+
+.font-12 { font-size: 12px; }
+
+.font-11 { font-size: 11px; }
+
+.font-10 { font-size: 10px; }
+
+.font-11 { font-size: 11px; }
+
+.font-10 { font-size: 10px; }
+
+.font-11 { font-size: 11px; }
+
+.font-10 { font-size: 10px; }
+
+/*# sourceMappingURL=typo.css.map */
